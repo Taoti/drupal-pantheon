@@ -14,18 +14,11 @@ fi
 ) >> $GITHUB_ENV
 
 if [[ -x "$GITHUB_WORKSPACE/set-environment" ]] ; then
-  echo "running 17"
   "$GITHUB_WORKSPACE/set-environment"
 else
-  echo "running 20"
-  ls -all ../../../work
-  echo "running 22"
-  ls -all ../../
-  echo "running 24"
-  ls -all ../
-  ls "$GITHUB_WORKSPACE"
+  THEME_NAME=${SECRET_SITE_NAME//-/_}
   (
-    echo "THEME_DIR=web/themes/$SECRET_SITE_NAME"
+    echo "THEME_DIR=web/themes/$THEME_NAME"
     echo "NPM_VER=12.x"
     echo "PHP_VER=7.4"
   ) >> $GITHUB_ENV
