@@ -18,8 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set Variables
+        env:
+          SECRET_SITE_NAME: ${{ secrets.PANTHEON_SITE }}
         run: ./.github/actions/deploy-pantheon/set-environment
 
       - id: setup-runner
@@ -28,7 +32,7 @@ jobs:
         with:
           secret_ssh_key: ${{ secrets.PANTHEON_SSH_KEY }}
           secret_terminus_token: ${{ secrets.PANTHEON_TERMINUS_TOKEN }}
-          secret_site_name: ${{ secrets.PANTHEON_STIE }}
+          secret_site_name: ${{ secrets.PANTHEON_SITE }}
 
       - name: Build Assets
         run: composer -n build-assets
