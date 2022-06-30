@@ -1,0 +1,24 @@
+{
+    "name": "taoti/drupal-pantheon",
+    "description": "Taoti ops files -- for Pantheon + Drupal 9+.",
+    "type": "project",
+    "license": "MIT",
+    "conflict": {
+        "drupal/core": "<9.0"
+    },
+    "require": {
+        "pantheon-systems/drupal-integrations": "^9.0 || ^10.0"
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "file-mapping": {
+                "[project-root]/.lando.base.yml": "assets/.lando.base.yml",
+                "[project-root]/.github/actions/deploy-pantheon/setup/action.yml": "assets/.github/actions/deploy-pantheon/setup/action.yml",
+                "[project-root]/.github/actions/deploy-pantheon/set-environment.yml": "assets/.github/actions/deploy-pantheon/set-environment",
+                "[project-root]/.github/actions/deploy-pantheon/example-local-set-environment": "assets/.github/actions/deploy-pantheon/example-local-set-environment",
+                "[project-root]/.github/workflows/deploy-pantheon.yml": "assets/.github/workflows/deploy-pantheon.yml",
+                "[project-root]/pantheon.yml": "assets/pantheon.yml"
+            }
+		}
+    }
+}
