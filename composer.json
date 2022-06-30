@@ -7,7 +7,9 @@
         "drupal/core": "<9.0"
     },
     "require": {
-        "pantheon-systems/drupal-integrations": "^9.0 || ^10.0"
+        "pantheon-systems/drupal-integrations": "^9.0 || ^10.0",
+        "symfony/filesystem": "^4.4 || ^5.0 || ^6.0",
+        "symfony/finder": "^4.4 || ^5.0 || ^6.0"
     },
     "extra": {
         "drupal-scaffold": {
@@ -20,5 +22,10 @@
                 "[project-root]/pantheon.upstream.yml": "assets/pantheon.yml"
             }
 		}
+    },
+    "autoload": {
+        "psr-4": {
+            "Taoti\\DrupalPantheon\\": "src"
+        }
     }
 }
