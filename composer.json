@@ -1,13 +1,13 @@
 {
     "name": "taoti/drupal-pantheon",
-    "description": "Taoti ops files -- for Pantheon + Drupal 9+.",
+    "description": "Taoti ops files -- for Pantheon + Drupal 8+.",
     "type": "project",
     "license": "MIT",
     "conflict": {
-        "drupal/core": "<9.0"
+        "drupal/core": "<8.0"
     },
     "require": {
-        "pantheon-systems/drupal-integrations": "^9.0 || ^10.0",
+        "pantheon-systems/drupal-integrations": "^8.0 || ^9.0 || ^10.0",
         "symfony/filesystem": "^4.4 || ^5.0 || ^6.0",
         "symfony/finder": "^4.4 || ^5.0 || ^6.0"
     },
