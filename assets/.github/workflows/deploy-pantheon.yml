@@ -48,6 +48,3 @@ jobs:
         run: |
           terminus -n drush "${{ secrets.PANTHEON_SITE }}.$TERMINUS_ENV" -- deploy -y
           terminus -n env:clear-cache "${{ secrets.PANTHEON_SITE }}.$TERMINUS_ENV"
-
-      - name: Cleanup
-        run: terminus -n build:env:delete:ci ${{ secrets.PANTHEON_SITE }} --keep=2 --yes
