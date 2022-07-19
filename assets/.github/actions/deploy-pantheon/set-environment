@@ -5,6 +5,8 @@ if [[ ${GITHUB_REF_NAME} == 'main' ]] ; then
   DEFAULT_ENV='dev'
 elif [[ ${GITHUB_REF_NAME} == 'master' ]] ; then
   DEFAULT_ENV='dev'
+elif [[ ${GITHUB_REF_NAME} == *'/merge'* ]] ; then
+  DEFAULT_ENV="pr-${GITHUB_REF_NAME/\/merge/}"
 else
   DEFAULT_ENV=$GITHUB_REF_NAME
 fi
