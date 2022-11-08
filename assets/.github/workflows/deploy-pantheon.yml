@@ -41,6 +41,9 @@ jobs:
       - name: Build Assets
         run: composer -n build-assets
 
+      - name: Adjust Git SSH Options
+        run: git config --global core.sshCommand 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+
       - name: Deploy code to Pantheon
         run: |
           commit_message=$(git log -1 --pretty=%B)
