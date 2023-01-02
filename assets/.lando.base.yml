@@ -2,6 +2,7 @@ recipe: pantheon
 config:
   framework: drupal9
   xdebug: false
+  composer_version: '2-latest'
 
 events:
   post-start:
@@ -13,7 +14,7 @@ events:
 services:
   appserver:
     build_as_root:
-      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+      - curl -sL https://deb.nodesource.com/setup_14.x | bash -
       - apt-get install -y nodejs
       - npm install --global gulp-cli stylelint stylelint-no-browser-hacks stylelint-config-standard stylelint-order
       - mkdir -p /root/tmp

@@ -21,7 +21,7 @@ else
   THEME_NAME=${SECRET_SITE_NAME//-/_}
   (
     echo "THEME_DIR=web/themes/$THEME_NAME"
-    echo "NPM_VER=12.x"
-    echo "PHP_VER=7.4"
+    echo "NPM_VER=14.x"
+    echo "PHP_VER=8.1"
   ) >> $GITHUB_ENV
 fi
