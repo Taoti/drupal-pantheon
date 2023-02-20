@@ -1,6 +1,6 @@
 {
     "name": "taoti/drupal-pantheon",
-    "description": "Taoti ops files -- for Pantheon + Drupal 8+.",
+    "description": "Taoti ops files -- for Pantheon + Drupal 10+.",
     "type": "project",
     "license": "MIT",
     "conflict": {
@@ -13,6 +13,9 @@
     },
     "extra": {
         "drupal-scaffold": {
+            "allowed-packages": [
+                "pantheon-systems/drupal-integrations"
+            ],
             "file-mapping": {
                 "[project-root]/.lando.base.yml": "assets/.lando.base.yml",
                 "[project-root]/.github/actions/deploy-pantheon/setup/action.yml": "assets/.github/actions/deploy-pantheon/setup/action.yml",
