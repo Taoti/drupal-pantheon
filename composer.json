@@ -22,11 +22,7 @@
                 "[project-root]/.github/actions/deploy-pantheon/set-environment": "assets/.github/actions/deploy-pantheon/set-environment",
                 "[project-root]/.github/actions/deploy-pantheon/example-local-set-environment": "assets/.github/actions/deploy-pantheon/example-local-set-environment",
                 "[project-root]/.github/workflows/deploy-pantheon.yml": "assets/.github/workflows/deploy-pantheon.yml",
-                "[project-root]/pantheon.upstream.yml": "assets/pantheon.yml",
-                "[web-root]/sites/default/settings.pantheon.php": {
-                    "mode": "append",
-                    "append": "assets/settings.append"
-                }
+                "[project-root]/pantheon.upstream.yml": "assets/pantheon.yml"
             }
 		}
     },
