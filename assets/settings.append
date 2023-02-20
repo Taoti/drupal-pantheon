@@ -1,0 +1,4 @@
+/**
+ * Include Taoti specific settings.
+ */
+include __DIR__ . "/settings.taoti.php";
