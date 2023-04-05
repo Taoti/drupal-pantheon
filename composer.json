@@ -18,10 +18,11 @@
             ],
             "file-mapping": {
                 "[project-root]/.lando.base.yml": "assets/.lando.base.yml",
-                "[project-root]/.github/actions/deploy-pantheon/setup/action.yml": "assets/.github/actions/deploy-pantheon/setup/action.yml",
-                "[project-root]/.github/actions/deploy-pantheon/set-environment": "assets/.github/actions/deploy-pantheon/set-environment",
-                "[project-root]/.github/actions/deploy-pantheon/example-local-set-environment": "assets/.github/actions/deploy-pantheon/example-local-set-environment",
-                "[project-root]/.github/workflows/deploy-pantheon.yml": "assets/.github/workflows/deploy-pantheon.yml",
+                "[project-root]/.github/workflows/deploy-pantheon.yml": {
+				    "mode": "replace",
+				    "path": "assets/.github/workflows/deploy-pantheon.yml",
+				    "overwrite": false
+				},
                 "[project-root]/pantheon.upstream.yml": "assets/pantheon.yml"
             }
 		}
