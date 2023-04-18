@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Taoti\DrupalPantheon;
 
+use Composer\Script\Event;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
@@ -37,12 +38,8 @@ class Prepare {
   /**
    * Fix up .gitignore: remove everything above the "::: cut :::" line.
    */
-  public static function updateIgnoreFiles(): void {
-    $ignoreFiles = [
-      $_ENV['GITHUB_WORKSPACE'] . '/.gitignore',
-      $_ENV['GITHUB_WORKSPACE'] . $_ENV['THEME_DIR'] . '/.gitignore',
-    ];
-    foreach ($ignoreFiles as $file) {
+  public static function updateIgnoreFiles(Event $event): void {
+    foreach ($event->getArguments() as $file) {
       $contents = file_get_contents($file);
       $contents = preg_replace('/.*::: cut :::*/s', '', $contents);
       file_put_contents($file, $contents);
