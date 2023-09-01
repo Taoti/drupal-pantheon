@@ -2,6 +2,7 @@ recipe: pantheon
 config:
   framework: drupal9
   xdebug: false
+  composer_version: '2-latest'
 
 events:
   post-start:
@@ -54,6 +55,12 @@ tooling:
   xdebug-find-ext-path:
     service: appserver
     description: Find path of xdebug.so file
+  phpcs:
+    service: appserver
+    cmd: /app/vendor/bin/phpcs
+  phpcbf:
+    service: appserver
+    cmd: /app/vendor/bin/phpcbf
     cmd:
       - find /usr/local/lib/php/extensions/ -name "xdebug.so"
     user: root
