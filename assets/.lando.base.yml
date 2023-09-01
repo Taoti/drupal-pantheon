@@ -55,12 +55,12 @@ tooling:
   xdebug-find-ext-path:
     service: appserver
     description: Find path of xdebug.so file
+    cmd:
+      - find /usr/local/lib/php/extensions/ -name "xdebug.so"
+    user: root
   phpcs:
     service: appserver
     cmd: /app/vendor/bin/phpcs
   phpcbf:
     service: appserver
     cmd: /app/vendor/bin/phpcbf
-    cmd:
-      - find /usr/local/lib/php/extensions/ -name "xdebug.so"
-    user: root
