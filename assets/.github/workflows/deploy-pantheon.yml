@@ -1,4 +1,4 @@
-# See also https://tu.taoti.com/knowledge-base/github-action-based-pantheon-deploys/
+
 name: Pantheon Deploy
 on:
   push:
@@ -12,7 +12,7 @@ on:
       - 'alpha'
       - 'beta'
 
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
@@ -21,37 +21,14 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Setup and Build
+        uses: taoti/actions-build@main
         with:
-          fetch-depth: 0
-
-      - name: Set Variables
-        env:
-          SECRET_SITE_NAME: ${{ secrets.PANTHEON_SITE }}
-        run: ./.github/actions/deploy-pantheon/set-environment
-
-      - id: setup-runner
-        name: Setup Build Environment
-        uses: ./.github/actions/deploy-pantheon/setup
+          dir_theme: web/themes/custom/_theme_name_
+          version_npm: 20.x
+      - name: Pantheon deploy
+        uses: taoti/actions-pantheon@main
         with:
           secret_ssh_key: ${{ secrets.PANTHEON_SSH_KEY }}
           secret_terminus_token: ${{ secrets.PANTHEON_TERMINUS_TOKEN }}
-          secret_site_name: ${{ secrets.PANTHEON_SITE }}
-
-      - name: Build Assets
-        run: composer -n build-assets
-
-      - name: Adjust Git SSH Options
-        run: git config --global core.sshCommand 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
-
-      - name: Deploy code to Pantheon
-        run: |
-          commit_message=$(git log -1 --pretty=%B)
-          git config user.name "$(git --no-pager log --format=format:'%an' -n 1)"
-          git config user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
-          terminus build:env:create "${{ secrets.PANTHEON_SITE }}.dev" "$TERMINUS_ENV" --message="${{ github.actor }}: CI Deployment for: $commit_message" --yes
-
-      - name: Run Post Deploy Tasks
-        run: |
-          terminus -n drush "${{ secrets.PANTHEON_SITE }}.$TERMINUS_ENV" -- deploy -y
-          terminus -n env:clear-cache "${{ secrets.PANTHEON_SITE }}.$TERMINUS_ENV"
+          site_name: _site_name_
