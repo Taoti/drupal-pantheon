@@ -1,6 +1,6 @@
 recipe: pantheon
 config:
-  framework: drupal10
+  framework: drupal9
   xdebug: false
   composer_version: '2-latest'
 
