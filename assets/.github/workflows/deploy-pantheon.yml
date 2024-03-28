@@ -25,7 +25,7 @@ jobs:
         uses: taoti/actions-build@main
         with:
           dir_theme: web/themes/custom/_theme_name_
-          version_npm: 20.x
+          secret_token_gh: ${{ secrets.TOKEN_GH }}
       - name: Pantheon deploy
         uses: taoti/actions-pantheon@main
         with:
