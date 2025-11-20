@@ -16,6 +16,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  COMPOSER_NO_SECURITY_BLOCKING: 1
+
 jobs:
   build:
     name: Build
