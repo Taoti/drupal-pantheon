@@ -22,7 +22,6 @@ services:
       - chmod 666 /root/tmp
       - mkdir -p /app/web/sites/simpletest/browser-output
       - chmod 777 -R /app/web/sites/simpletest
-      - /usr/local/bin/composer self-update
     overrides:
       environment:
         PHP_IDE_CONFIG: serverName=localhost
